@@ -5,8 +5,6 @@ import './App.css'
 import DecisionTree from './DecisionTree';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
       <DecisionTree />
