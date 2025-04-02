@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import decisionNodesData from '../options.json';
+
 
 const DecisionTree = () => {
   // Track current node and history
@@ -8,128 +10,8 @@ const DecisionTree = () => {
   
   // Sample decision tree data structure
   // You can customize this with your own decision nodes
-  const decisionNodes = {
-    'start': {
-      question: 'What\'s the decision today?',
-      options: [
-        { text: 'IF/TF for a certain type of task', nextNode: 'type-specific' },
-        { text: 'Length Constraint', nextNode: 'length-constraint' },
-        { text: 'Restatement Explanation', nextNode: 'restatement-test' },
-        { text: 'Localization vs. Writing', nextNode: 'loc-vs-writing' }
-      ]
-    },
-    'type-specific': {
-        question: 'What is the prompt type?',
-        options: [
-          { text: 'Content Extraction', nextNode: 'extraction' },
-          { text: 'Summarization', nextNode: 'summarization' },
-          { text: 'Rewrite', nextNode: 'rewrite' },
-          { text: 'Closed Q&A', nextNode: 'closedqa' },
-          { text: 'Classification', nextNode: 'classification' },
-          { text: 'Open Q&A', nextNode: 'openqa' },
-          { text: 'Brainstorming', nextNode: 'brainstorming' },
-          { text: 'Creative Writing', nextNode: 'creativewriting' },
-          { text: 'Chatbot', nextNode: 'chatbot' }
-        ]
-      },
-    'extraction': {
-      question: 'Does it have reference text',
-      options: [
-        { text: 'Yes', nextNode: 'extraction_all_data' },
-        { text: 'No', nextNode: 'conclusion_skip' }
-      ]
-    },
-    'extraction_all_data': {
-        question: 'Does it pull all data it should pull?',
-        options: [
-          { text: 'Yes', nextNode: 'extraction_accurate_data' },
-          { text: 'No', nextNode: 'conclusion_if_tf_issue' }
-        ]
-      },
-    'extraction_accurate_data': {
-        question: 'Does it pull all data accurately?',
-        options: [
-            { text: 'Yes', nextNode: 'extraction_unneeded_detail' },
-            { text: 'No', nextNode: 'conclusion_if_tf_issue' }
-        ]
-    },
-    'extraction_unneeded_detail': {
-        question: 'Does it add any significant detail beyond the text?',
-        options: [
-            { text: 'Yes', nextNode: 'conclusion_tf_issue' },
-            { text: 'No', nextNode: 'restatement_test' }
-        ]
-    },
-    'perf_speed': {
-      question: 'When does the speed issue occur?',
-      options: [
-        { text: 'At peak usage times', nextNode: 'conclusion_1' },
-        { text: 'Consistently throughout the day', nextNode: 'conclusion_2' },
-        { text: 'Only during specific operations', nextNode: 'conclusion_3' }
-      ]
-    },
-    'perf_resource': {
-      question: 'Which resource is being over-utilized?',
-      options: [
-        { text: 'CPU', nextNode: 'conclusion_4' },
-        { text: 'Memory', nextNode: 'conclusion_5' },
-        { text: 'Disk I/O', nextNode: 'conclusion_6' }
-      ]
-    },
-    'perf_scale': {
-      question: 'At what threshold does performance degrade?',
-      options: [
-        { text: 'Low user count (0-100)', nextNode: 'conclusion_7' },
-        { text: 'Medium user count (100-1000)', nextNode: 'conclusion_8' },
-        { text: 'High user count (1000+)', nextNode: 'conclusion_9' }
-      ]
-    },
-    'budget': {
-      question: 'What is your budget concern?',
-      options: [
-        { text: 'Initial implementation cost', nextNode: 'budget_initial' },
-        { text: 'Ongoing maintenance cost', nextNode: 'budget_maintenance' },
-        { text: 'Total cost of ownership', nextNode: 'budget_tco' }
-      ]
-    },
-    'budget_initial': {
-      question: 'What is your implementation budget range?',
-      options: [
-        { text: 'Low ($0-$10K)', nextNode: 'conclusion_10' },
-        { text: 'Medium ($10K-$50K)', nextNode: 'conclusion_11' },
-        { text: 'High ($50K+)', nextNode: 'conclusion_12' }
-      ]
-    },
-    'technical': {
-      question: 'What technical limitation are you experiencing?',
-      options: [
-        { text: 'Integration challenges', nextNode: 'tech_integration' },
-        { text: 'Legacy system compatibility', nextNode: 'tech_legacy' },
-        { text: 'Security constraints', nextNode: 'tech_security' }
-      ]
-    },
-    // Conclusions
-    'conclusion_skip': {
-      conclusion: 'Skip the task.',
-      options: []
-    },
-    'conclusion_if_tf_no_issue': {
-      conclusion: 'Neither Instruction Following nor Truthfulness is penalized.',
-      options: []
-    },
-    'conclusion_if_issue': {
-      conclusion: 'Penalize Instruction Following. Do not penalize Truthfulness.',
-      options: []
-    },
-    'conclusion_tf_issue': {
-      conclusion: 'Penalize Truthfulness. Do not penalize Instruction Following.',
-      options: []
-    },
-    'conclusion_if_tf_issue': {
-      conclusion: 'Penalize both Instruction Following and Truthfulness.',
-      options: []
-    }
-  };
+  console.log(decisionNodesData);
+  const decisionNodes = decisionNodesData.decisionNodes;
 
   // Handle option selection
   const handleOptionClick = (nextNodeId) => {
