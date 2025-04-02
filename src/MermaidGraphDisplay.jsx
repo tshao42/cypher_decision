@@ -3,12 +3,12 @@ import React, { useState } from 'react';
 const MermaidGraphDisplay = () => {
     const [activeSvg, setActiveSvg] = useState(null);
     const svgData = [
-        { path: '/src/assets/mermaids/chatbot.svg', property: 'Chatbot' },
-        { path: '/src/assets/mermaids/classification.svg', property: 'Classification' },
-        { path: '/src/assets/mermaids/closedqna.svg', property: 'Closed Q&A' },
-        { path: '/src/assets/mermaids/extraction.svg', property: 'Extractions' },
-        { path: '/src/assets/mermaids/length-constraint.svg', property: 'Length Constraint' },
-        { path: '/src/assets/mermaids/rewrite.svg', property: 'Rewrite' }
+        { path: '/public/mermaids/chatbot.svg', property: 'Chatbot' },
+        { path: '/public/mermaids/classification.svg', property: 'Classification' },
+        { path: '/public/mermaids/closedqna.svg', property: 'Closed Q&A' },
+        { path: '/public/mermaids/extraction.svg', property: 'Extractions' },
+        { path: '/public/mermaids/length-constraint.svg', property: 'Length Constraint' },
+        { path: '/public/mermaids/rewrite.svg', property: 'Rewrite' }
     ];
 
     const handleButtonClick = (svgName) => {
