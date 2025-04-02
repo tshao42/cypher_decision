@@ -4,6 +4,6 @@
     Content-Type = "text/javascript"
 
 [[headers]]
-  for = "/*.mjs"
+  for = "/*.jsx"
   [headers.values]
     Content-Type = "text/javascript"

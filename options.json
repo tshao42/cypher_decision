@@ -208,9 +208,11 @@
         ]
       },
       "length_constraint_strict": {
-        "question": "Is this node implemented?",
+        "question": "Compare Response length and Requirement In Prompt",
         "options": [
-          { "text": "Not yet", "nextNode": "conclusion_skip" }
+          { "text": "Fully satisfy the requirement", "nextNode": "conclusion_if_issue" },
+          { "text": "Violates the requirements (by even 1 character)", "nextNode": "conclusion_major_if_issue" }
+
         ]
       },
       "restatement-test": {
@@ -247,6 +249,18 @@
       },
     "general_if": {
         "conclusion": "Continue to compare against constraints. Check against restatements. Check truthfulness of all factual info.",
+        "options": []
+    },
+    "conclusion_no_if_issue": {
+        "conclusion": "IF: No issue",
+        "options": []
+    },
+    "conclusion_minor_if_issue": {
+        "conclusion": "IF: Minor issue",
+        "options": []
+    },
+    "conclusion_major_if_issue": {
+        "conclusion": "IF: True issue",
         "options": []
     }
     }
