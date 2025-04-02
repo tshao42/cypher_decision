@@ -20,9 +20,11 @@ const DecisionTree = () => {
     };
 
     // Reset the tree
-    const handleReset = () => {
+    const handleReset = (e) => {
+        e.preventDefault();
         setCurrentNodeId('start');
         setHistory([]);
+        e.target.blur();
     };
 
     // Go back one step
@@ -52,7 +54,7 @@ const DecisionTree = () => {
                         <div className="space-y-3">
                             {currentNode.options.map((option, index) => (
                                 <button
-                                    key={index}
+                                    key={`${currentNodeId}-${index}`}
                                     onClick={() => handleOptionClick(option.nextNode)}
                                     className="w-full p-3 text-left rounded-md bg-blue-50 hover:bg-blue-100 border border-blue-200 transition duration-150"
                                 >
@@ -98,12 +100,12 @@ const DecisionTree = () => {
                                 const node = decisionNodes[item.id];
                                 const selectedOption = node.options.find(opt => opt.nextNode === item.selection);
                                 return (
-                                    <li key={index} className="mb-1">
+                                    <div key={index} className="mb-1">
                                         <span className="font-medium">{node.question}</span>
                                         {selectedOption && (
                                             <span className="text-blue-600"> → {selectedOption.text}</span>
                                         )}
-                                    </li>
+                                    </div>
                                 );
                             })}
                         </ol>

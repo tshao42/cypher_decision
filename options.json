@@ -62,7 +62,7 @@
         "question": "Are summarizations correct and accurate?",
         "options": [
           { "text": "Yes", "nextNode": "summarization_no_outside" },
-          { "text": "No", "nextNode": "summarization_accurate" }
+          { "text": "No", "nextNode": "general_if" }
         ]
       },
       "rewrite": {
@@ -203,7 +203,7 @@
         "options": [
             { "text": "above limit by <= 5%", "nextNode": "conclusion_no_if_issue" },
             { "text": "above limit by 5% - 10%" , "nextNode": "conclusion_minor_if_issue" },
-            { "text": "above limit by > 10%", "nextNode": "conclusion_no_major_issue" },
+            { "text": "above limit by > 10%", "nextNode": "conclusion_major_if_issue" },
             { "text": "below limit", "nextNode": "conclusion_no_if_issue" }
         ]
       },

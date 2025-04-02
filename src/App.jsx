@@ -5,6 +5,7 @@ import './App.css'
 import DecisionTree from './DecisionTree';
 import Footer from './Footer';
 import Title from './Title';
+import MermaidGraphDisplay from './MermaidGraphDisplay';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
     <div className="PageWrapper">
       <Title />
       <DecisionTree />
+      <MermaidGraphDisplay />
       <Footer />
       </div>
     </>
