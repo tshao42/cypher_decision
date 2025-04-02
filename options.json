@@ -183,6 +183,31 @@
         ]
       },
       "length-constraint": {
+        "question": "What type of length constraint is this?",
+        "options": [
+          { "text": "Range of words", "nextNode": "length_constraint_range" },
+          { "text": "Specific Character Count", "nextNode": "length_constraint_count" },
+          { "text": "Very Strict Limit w/ Clear Emphasis", "nextNode": "length_constraint_strict" }
+        ]
+      },
+      "length_constraint_range": {
+        "question": "Calculate difference between Response length and Requirement In Prompt (percentage)",
+        "options": [
+          { "text": "<= 10%", "nextNode": "conclusion_no_if_issue" },
+          { "text": "10% - 20%", "nextNode": "conclusion_minor_if_issue" },
+          { "text": "> 20%", "nextNode": "conclusion_major_if_issue" }
+        ]
+      },
+      "length_constraint_count": {
+        "question": "Calculate difference between Response length and Requirement In Prompt (percentage)",
+        "options": [
+            { "text": "above limit by <= 5%", "nextNode": "conclusion_no_if_issue" },
+            { "text": "above limit by 5% - 10%" , "nextNode": "conclusion_minor_if_issue" },
+            { "text": "above limit by > 10%", "nextNode": "conclusion_no_major_issue" },
+            { "text": "below limit", "nextNode": "conclusion_no_if_issue" }
+        ]
+      },
+      "length_constraint_strict": {
         "question": "Is this node implemented?",
         "options": [
           { "text": "Not yet", "nextNode": "conclusion_skip" }
@@ -220,9 +245,9 @@
         "conclusion": "Penalize both Instruction Following and Truthfulness.",
         "options": []
       },
-        "general_if": {
-            "conclusion": "Continue to compare against constraints. Check against restatements. Check truthfulness of all factual info.",
-            "options": []
-        }
+    "general_if": {
+        "conclusion": "Continue to compare against constraints. Check against restatements. Check truthfulness of all factual info.",
+        "options": []
+    }
     }
   }
