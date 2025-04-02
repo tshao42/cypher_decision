@@ -3,17 +3,17 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import DecisionTree from './DecisionTree';
+import Footer from './Footer';
+import Title from './Title';
 
 function App() {
   return (
     <>
+    <div className="PageWrapper">
+      <Title />
       <DecisionTree />
-      <p className="project-docs">
-        Disclaimer: For reference only. Always consult the following documents.
-      </p>
-      <p>
-        <a href='https://docs.google.com/document/d/1zdwfkbJdRrBSuWvTER0YmRHXFEfofd4SVH9sheMR0y0/edit?tab=t.0'>Project Instruction</a>
-      </p>
+      <Footer />
+      </div>
     </>
   )
 }
