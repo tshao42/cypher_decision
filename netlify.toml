@@ -11,10 +11,10 @@
   NODE_VERSION = "18" # or your preferred Node version
 
 [[headers]]
-  for = "/*"
-    [headers.values]
-    Cache-Control = "public, max-age=0, must-revalidate"
-
+  for = "/*.html"
+  [headers.values]
+    Content-Type = "text/html; charset=utf-8"
+    
 [[headers]]
   for = "/assets/*"
     [headers.values]
