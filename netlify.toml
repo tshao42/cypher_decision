@@ -7,12 +7,15 @@
   to = "/index.html"
   status = 200
 
+[build.environment]
+  NODE_VERSION = "18" # or your preferred Node version
+
 [[headers]]
-  for = "/*.js"
-  [headers.values]
-    Content-Type = "text/javascript"
+  for = "/*"
+    [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
 
 [[headers]]
   for = "/assets/*"
-  [headers.values]
+    [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
