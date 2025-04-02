@@ -216,9 +216,10 @@
         ]
       },
       "restatement-test": {
-        "question": "Is this node implemented?",
+        "question": "Is there a restatement of the prompt's requirements in the response?",
         "options": [
-          { "text": "Not yet", "nextNode": "conclusion_skip" }
+          { "text": "Yes", "nextNode": "conclusion_restatement_yes" },
+          { "text": "No", "nextNode": "conclusion_restatement_no" }
         ]
       },
       "loc-vs-writing": {
@@ -262,6 +263,14 @@
     "conclusion_major_if_issue": {
         "conclusion": "IF: True issue",
         "options": []
+    },
+    "conclusion_restatement_yes": {
+        "conclusion": "IF and truthfulness issue can be separated. It's possible for there to be IF issue while truthfulness is not an issue.",
+        "options": []
+    },
+    "conclusion_restatement_no": {
+        "conclusion": "IF and truthfulness issue cannot be separated. It's impossible for there to be IF issue while truthfulness is not an issue.",
+        "options": []
     }
     }
-  }
+}
