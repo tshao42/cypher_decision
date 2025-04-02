@@ -10,7 +10,6 @@ const DecisionTree = () => {
   
   // Sample decision tree data structure
   // You can customize this with your own decision nodes
-  console.log(decisionNodesData);
   const decisionNodes = decisionNodesData.decisionNodes;
 
   // Handle option selection
@@ -46,6 +45,7 @@ const DecisionTree = () => {
       } else {
         setCurrentNodeId(newHistory[newHistory.length - 1].id);
       }
+      setHistory(newHistory); // Ensure history is updated correctly
       
       // Remove last conclusion if we're going back
       if (conclusions.length > 0 && decisionNodes[currentNodeId]?.conclusion) {
@@ -56,7 +56,7 @@ const DecisionTree = () => {
     }
   };
 
-  const currentNode = decisionNodes[currentNodeId];
+  const currentNode = decisionNodes[currentNodeId] || {};
 
   return (
     <div className="w-full max-w-4xl mx-auto p-6 bg-gray-50 rounded-lg shadow">      

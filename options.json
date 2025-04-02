@@ -1,7 +1,7 @@
 {
     "decisionNodes": {
       "start": {
-        "question": "What's the decision today?",
+        "question": "Type of question?",
         "options": [
           { "text": "IF/TF for a certain type of task", "nextNode": "type-specific" },
           { "text": "Length Constraint", "nextNode": "length-constraint" },
@@ -165,7 +165,7 @@
         "question": "Do tone and approaches align with the prompt's request?",
         "options": [
             { "text": "Yes", "nextNode": "chatbot_if_no_issue_fact" },
-            { "text": "No - Truthfulness = No Issue", "nextNode": "general_if" }
+            { "text": "No", "nextNode": "chatbot_if_issue_fact" }
         ]
       },
       "chatbot_if_issue_fact": {
@@ -223,9 +223,8 @@
         ]
       },
       "loc-vs-writing": {
-        "question": "Is this node implemented?",
+        "question": "Not implemented yet",
         "options": [
-          { "text": "Not yet", "nextNode": "conclusion_skip" }
         ]
       },
       "conclusion_skip": {
@@ -261,7 +260,7 @@
         "options": []
     },
     "conclusion_major_if_issue": {
-        "conclusion": "IF: True issue",
+        "conclusion": "IF: Major issue",
         "options": []
     },
     "conclusion_restatement_yes": {
