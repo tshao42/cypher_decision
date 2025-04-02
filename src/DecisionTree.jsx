@@ -40,6 +40,7 @@ const DecisionTree = () => {
                 setCurrentNodeId(newHistory[newHistory.length - 1].id);
             }
         }
+        e.target.blur();
     };
 
     const currentNode = decisionNodes[currentNodeId] || {};
