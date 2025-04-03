@@ -1,0 +1,47 @@
+{
+    "prompt": "Give me 3 vegetarian dishes",
+    "blockSets": [
+      {
+        "label": "No reference text",
+        "blocks": [
+          {
+            "text": "Here are 3 vegetarian dishes\n1. Potato Salad\n2. Hummus & falafel\n3. Chicken wings",
+            "annotation": "IF: 1 - Major issue\nTruthfulness: 1 – Major issues\nRationale: [IF] There are two constraints – 3 dishes and vegetarian dishes. Chicken wings are not vegetarian so they do not satisfy the vegetarian constraint\n[Truthfulness] Chicken wings are not vegetarian"
+          }
+        ]
+      },
+      {
+        "label": "Reference Text: Claims beef hamburgers are vegetarian",
+        "blocks": [
+          {
+            "text": "1. Steak wraps\n2. Hainanese chicken and rice\n3. Chafing dish",
+            "annotation": "IF: 1 – Major Issues\nTruthfulness: 1 – Major issues\nRationale: [IF] There are two constraints – 3 dishes and vegetarian dishes. None of the dishes are vegetarian\n[Truthfulness] It's reasonable to assume that none of these dishes are vegetarian. Also a chafing dish is not a type of meal."
+          },
+          {
+            "text": "Here are 4 vegetarian dishes\n1. Tofu salad\n2. Veggie wrap\n3. Hummus dip\n4. Caprese Salad",
+            "annotation": "IF: 1 – Major Issues\nTruthfulness: 3 – No Issues\nRationale: \n[IF] The response provided 4 dishes instead of 3. \n[Truthfulness] All dishes are vegetarian"
+          },
+          {
+            "text": "Here are 4 vegetarian dishes\n1. Tofu salad\n2. Veggie wrap\n3. Hummus dip\n4. Beef Hamburgers",
+            "annotation": "IF: 1 – Major Issues\nTruthfulness: 1 – Major Issues\nRationale: \n[IF] The response provided 4 dishes instead of 3. \n[Truthfulness] Beef hamburgers are not vegetarian"
+          },
+          {
+            "text": "Here are 3 vegetarian dishes\n1. Tofu salad\n2. Veggie wrap\n3. Hummus dip\n4. Caprese Salad",
+            "annotation": "IF: 1 – Major Issues\nTruthfulness: 1 – Major Issue\nRationale: \n[IF] The response provided 4 dishes instead of 3\n[Truthfulness] The model is providing a contextually and factually incorrect statement"
+          },
+          {
+            "text": "Here are some vegetarian dishes\n1. Tofu salad\n2. Veggie wrap\n3. Hummus dip\n4. Caprese Salad",
+            "annotation": "IF: 1 – Major Issues\nTruthfulness: 3 – No issues\nRationale: \n[IF] The response provided 4 dishes instead of 3. \n[Truthfulness] It is true that these are some vegetarian dishes"
+          },
+          {
+            "text": "1. Tofu salad\n2. Veggie wrap\n3. Hummus dip\n4. Caprese Salad",
+            "annotation": "IF: 1 – Major Issues\nTruthfulness: 1 – Major issues\nRationale: \n[IF] The response provided 4 dishes instead of 3. \n[Truthfulness] The response is untruthful. These are 4 dishes not 3. There is no statement to clarify"
+          },
+          {
+            "text": "Here are 4 vegetarian dishes according to the article:\n1. Tofu salad\n2. Veggie wrap\n3. Hummus dip\n4. Beef Hamburgers\nHowever, beef hamburgers are not vegetarian",
+            "annotation": "IF: 1 – Major Issues\nTruthfulness: 3 – No Issue\nRationale: \n[IF] The response provided 4 dishes instead of 3. \n[Truthfulness] The answer is grounded in the reference text"
+          }
+        ]
+      }
+    ]
+  }

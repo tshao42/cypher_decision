@@ -1,0 +1,31 @@
+.block-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.block-container:hover {
+    background-color: #f9f9f9;
+}
+
+.block-content {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.block-annotation {
+    font-size: 14px;
+    color: #555;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.block-annotation.expanded {
+    max-height: 100px; /* Adjust based on content */
+    opacity: 1;
+}
